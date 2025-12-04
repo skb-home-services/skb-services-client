@@ -3,7 +3,6 @@
 import { Calendar, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { StatusBadge } from '../ui/StatusBadge';
 import { SectionSkeleton } from '../ui/LoadingState';
 import { ADMIN_BOOKING_DETAIL_CONFIG } from '@/configs/admin-booking-detail';
 import { formatDate, formatTime, cn } from '@/lib/utils';

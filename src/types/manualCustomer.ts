@@ -1,5 +1,5 @@
 import { Address, PaginationInfo, PhoneNumber, PhoneNumberInput } from './common';
-import { MainImage, Service } from './service';
+import { MainImage } from './service';
 
 export type ManualCustomerServiceChannel = 'whatsapp' | 'email';
 export type ManualCustomerServiceStatus = 'active' | 'paused' | 'completed';

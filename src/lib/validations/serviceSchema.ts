@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { imageGalleryValidation, imageValidation } from './imageSchema';
+import { imageGalleryValidation } from './imageSchema';
 
 export const serviceSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),

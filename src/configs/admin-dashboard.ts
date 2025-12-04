@@ -1,5 +1,4 @@
-import { Wrench, Calendar, Users, MessageSquare, ArrowRight, Clock, AlertCircle, LucideIcon } from 'lucide-react';
-import type { BookingStatus } from '@/types';
+import { Wrench, Calendar, Users, MessageSquare, LucideIcon } from 'lucide-react';
 
 export interface AdminDashboardStats {
     totalServices: number;

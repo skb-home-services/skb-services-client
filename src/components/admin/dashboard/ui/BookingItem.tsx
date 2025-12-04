@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import type { BookingItemProps } from '@/types/admin-dashboard';
-import { cn } from '@/lib/utils';
 
 export function BookingItem({ booking, href }: BookingItemProps) {
     const statusVariant =

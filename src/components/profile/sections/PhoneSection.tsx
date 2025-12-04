@@ -1,9 +1,9 @@
 'use client';
 
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Phone, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import { CountrySelect } from '../ui/CountrySelect';
 import { PROFILE_CONFIG } from '@/configs/profile';
 import { cn } from '@/lib/utils';

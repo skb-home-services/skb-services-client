@@ -3,7 +3,6 @@
 import { Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { PhoneDisplayProps } from '@/types/booking-detail';
-import type { PhoneNumber } from '@/types';
 
 export function PhoneDisplay({ phone, showIcon = true, className }: PhoneDisplayProps) {
     const phoneNumber = typeof phone === 'string' ? phone : phone.phoneE164 || '';

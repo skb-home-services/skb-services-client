@@ -1,10 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
 import { Header, PageLoader } from '@/components/common';
 import { AdminSidebar } from '@/components/admin';
-import { Button } from '@/components/ui/button';
 import { useProtectedRoute } from '@/hooks/useProtectedRoute';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

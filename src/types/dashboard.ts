@@ -1,4 +1,4 @@
-import type { Booking, BookingStatus, User } from './index';
+import type { Booking, User } from './index';
 import type { DashboardStats } from '@/configs/dashboard';
 
 export interface DashboardData {

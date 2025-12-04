@@ -1,20 +1,4 @@
-import {
-    MessageSquare,
-    RefreshCw,
-    Search,
-    Filter,
-    CalendarClock,
-    CheckCircle2,
-    Clock3,
-    ShieldAlert,
-    Eye,
-    Trash2,
-    Download,
-    Ban,
-    Inbox,
-    LucideIcon,
-    Users,
-} from 'lucide-react';
+import { MessageSquare, Filter, CheckCircle2, Clock3, ShieldAlert, Trash2, Download, Inbox, LucideIcon } from 'lucide-react';
 import type { InquiryStatusConfig, InquiryTableColumn, InquiryStatusFilter } from '@/types/admin-inquiries';
 
 export interface StatCardConfig {

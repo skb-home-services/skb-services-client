@@ -1,4 +1,4 @@
-import { User, Mail, Phone, Shield, Calendar, CheckCircle2, AlertCircle, Camera, X } from 'lucide-react';
+import { User, Mail, Phone, Shield, Calendar, CheckCircle2, AlertCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { COUNTRY_CODES, MAX_FILE_SIZE, ACCEPTED_IMAGE_TYPES, DEFAULT_COUNTRY_CODE } from './config';
 

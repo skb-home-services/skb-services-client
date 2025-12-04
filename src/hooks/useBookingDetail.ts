@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import { getUserBookingById } from '@/services';
 import { queryKeys } from '@/lib/queryKeys';
 import { BOOKING_DETAIL_CONFIG } from '@/configs/booking-detail';
-import type { BookingStatus, PhoneNumber } from '@/types';
+import type { PhoneNumber } from '@/types';
 import type { UseBookingDetailReturn } from '@/types/booking-detail';
 
 export function useBookingDetail(): UseBookingDetailReturn {

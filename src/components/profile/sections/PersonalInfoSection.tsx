@@ -3,7 +3,7 @@
 import { useFormContext } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { User, Mail, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { AlertCircle, CheckCircle2 } from 'lucide-react';
 import { PROFILE_CONFIG } from '@/configs/profile';
 import { cn } from '@/lib/utils';
 import type { ProfileFormData } from '@/lib/validations';

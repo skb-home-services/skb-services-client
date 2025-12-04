@@ -6,7 +6,6 @@ import { StatsPanel } from './panels/StatsPanel';
 import { FiltersPanel } from './panels/FiltersPanel';
 import { BookingsTable } from './BookingsTable';
 import { DeleteDialog } from './DeleteDialog';
-import { LoadingState } from './ui/LoadingState';
 import { ErrorState } from './ui/ErrorState';
 import { useAdminBookings } from '@/hooks/useAdminBookings';
 

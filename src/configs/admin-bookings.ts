@@ -1,18 +1,4 @@
-import {
-    CalendarDays,
-    AlertCircle,
-    CheckCircle2,
-    XCircle,
-    Search,
-    Filter,
-    RefreshCw,
-    Clock,
-    User,
-    MapPin,
-    ExternalLink,
-    Trash2,
-    LucideIcon,
-} from 'lucide-react';
+import { CalendarDays, AlertCircle, CheckCircle2, XCircle, LucideIcon } from 'lucide-react';
 import type { BookingStatus } from '@/types';
 
 export interface StatusConfig {

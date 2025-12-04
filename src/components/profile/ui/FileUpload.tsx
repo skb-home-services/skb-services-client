@@ -3,7 +3,6 @@
 import { Camera, X } from 'lucide-react';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { AvatarUploadProps } from '@/types/profile';
 

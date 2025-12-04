@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { PROFILE_CONFIG } from '@/configs/profile';
 import type { FormActionsProps } from '@/types/profile';
 

@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Clock, MapPin, CalendarDays, CheckCircle2, XCircle, AlertCircle, User, ExternalLink } from 'lucide-react';

@@ -10,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { updateManualCustomerServiceSchema, type UpdateManualCustomerServiceFormData } from '@/lib/validations';
 import { MANUAL_CUSTOMER_CHANNELS, MANUAL_CUSTOMER_SERVICE_STATUSES, MANUAL_CUSTOMER_SERVICE_OUTCOMES } from '@/configs/config';
-import { cn } from '@/lib/utils';
 import type { ManualCustomerService } from '@/types';
 
 interface EditServiceFormProps {

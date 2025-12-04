@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ContactCard } from './ContactCard';
 import { CONTACT_CONFIG } from '@/configs/contact';

@@ -6,7 +6,7 @@ import { CustomerInfoSection } from './sections/CustomerInfoSection';
 import { ScheduleSection } from './sections/ScheduleSection';
 import { AddressSection } from './sections/AddressSection';
 import { NotesSection } from './sections/NotesSection';
-import { AdminBookingDetailLoadingState, ServiceCardSkeleton, SectionSkeleton } from './ui/LoadingState';
+import { AdminBookingDetailLoadingState } from './ui/LoadingState';
 import { AdminBookingDetailErrorState } from './ui/ErrorState';
 import { useAdminBookingDetail } from '@/hooks/useAdminBookingDetail';
 

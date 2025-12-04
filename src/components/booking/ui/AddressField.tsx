@@ -4,9 +4,7 @@ import { useFormContext } from 'react-hook-form';
 import { InputField } from './InputField';
 import { FormField } from './FormField';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Home, Building } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Home } from 'lucide-react';
 
 interface AddressFieldProps {
     focusedField: string | null;

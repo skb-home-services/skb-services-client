@@ -1,15 +1,4 @@
-import {
-    CalendarDays,
-    AlertCircle,
-    CheckCircle2,
-    TrendingUp,
-    Wrench,
-    Calendar,
-    MessageSquare,
-    Clock,
-    Sparkles,
-    ArrowRight,
-} from 'lucide-react';
+import { CalendarDays, AlertCircle, CheckCircle2, TrendingUp, Wrench, Calendar, MessageSquare, Clock } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { BookingStatus } from '@/types';
 

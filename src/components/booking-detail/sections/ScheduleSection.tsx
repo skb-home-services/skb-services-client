@@ -3,7 +3,6 @@
 import { Calendar, Clock } from 'lucide-react';
 import { formatDate, formatTime } from '@/lib/utils';
 import { BOOKING_DETAIL_CONFIG } from '@/configs/booking-detail';
-import type { BookingDetail } from '@/types/booking';
 
 interface ScheduleSectionProps {
     date: string;

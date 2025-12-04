@@ -7,7 +7,6 @@ import { StatusBadge } from './ui/StatusBadge';
 import { StatusSelector } from './ui/StatusSelector';
 import { ADMIN_BOOKING_DETAIL_CONFIG } from '@/configs/admin-booking-detail';
 import { formatDate } from '@/lib/utils';
-import type { BookingStatus } from '@/types';
 import type { BookingDetailHeaderProps } from '@/types/admin-booking-detail';
 
 export function BookingDetailHeader({ bookingId, status, createdAt, onStatusChange, isUpdatingStatus = false }: BookingDetailHeaderProps) {

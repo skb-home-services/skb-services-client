@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { CalendarDays, Clock, MapPin, User, ExternalLink, Trash2 } from 'lucide-react';
 import { StatusBadge } from './ui/StatusBadge';
 import { ADMIN_BOOKINGS_CONFIG } from '@/configs/admin-bookings';
-import { formatDate, cn } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import type { BookingRowProps } from '@/types/admin-bookings';
 
 export function BookingRow({ booking, onRowClick, onDelete }: BookingRowProps) {

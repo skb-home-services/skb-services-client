@@ -2,7 +2,6 @@
 
 import { FormProvider } from 'react-hook-form';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { PageLoader } from '@/components/common';
 import { useProfile } from '@/hooks/useProfile';
 import { PROFILE_CONFIG } from '@/configs/profile';
 import { getInitials } from '@/lib/utils';
