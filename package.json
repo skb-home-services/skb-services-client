@@ -10,7 +10,7 @@
         "lint": "next lint",
         "lint:fix": "next lint --fix",
         "format": "prettier --write .",
-        "fix": "pnpm lint:fix && pnpm format",
+        "fix": "npm run lint:fix && npm run format",
         "prepare": "husky"
     },
     "dependencies": {
