@@ -1,0 +1,115 @@
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+build
+
+# Production
+dist
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+
+# Misc
+*.pem
+
+# Node modules
+node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+*.lcov
+
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Build outputs
+build/
+dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# REPL history
+.node_repl_history
+
+# Yarn v2 cache
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Output of 'npm pack'
+*.tgz
+
+# VSCode files
+.vscode-test/
+
+# env files
+*.env.*
+!.env.example
+
+
+# logs directory
+logs/
+
+# ignore *.temp.* files
+*.temp.*
+
+# firebase service key
+*.key.*

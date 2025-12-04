@@ -1,0 +1,50 @@
+import {
+    Mail,
+    Phone,
+    MapPin,
+    ArrowRight,
+    Facebook,
+    Twitter,
+    Instagram,
+    Linkedin,
+    LucideIcon,
+    Lock,
+    User,
+    Home,
+    Building,
+    Calendar,
+    Clock,
+    FileText,
+    Sparkles,
+    CheckCircle,
+    Shield,
+    ArrowLeft,
+    Maximize2,
+} from 'lucide-react';
+
+export const ICON_MAP: Record<string, LucideIcon> = {
+    Mail,
+    Phone,
+    MapPin,
+    ArrowRight,
+    Facebook,
+    Twitter,
+    Instagram,
+    Linkedin,
+    Lock,
+    User,
+    Home,
+    Building,
+    Calendar,
+    Clock,
+    FileText,
+    Sparkles,
+    CheckCircle,
+    Shield,
+    ArrowLeft,
+    Maximize2,
+} as const;
+
+export const getIcon = (name: string): LucideIcon => {
+    return ICON_MAP[name] || ArrowRight;
+};
