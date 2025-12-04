@@ -19,7 +19,7 @@ interface TimeFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'na
 }
 
 export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(
-    ({ name, label, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }, ref) => {
+    ({ name, label, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }) => {
         const {
             register,
             formState: { errors },
@@ -48,7 +48,6 @@ export const TimeField = forwardRef<HTMLInputElement, TimeFieldProps>(
                         )}
                         aria-invalid={fieldError ? 'true' : 'false'}
                         aria-describedby={fieldError ? `${name}-error` : undefined}
-                        ref={ref}
                         {...props}
                     />
                 </div>

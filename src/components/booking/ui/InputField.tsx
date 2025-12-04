@@ -20,7 +20,7 @@ interface InputFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'n
 }
 
 export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-    ({ name, label, placeholder, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }, ref) => {
+    ({ name, label, placeholder, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }) => {
         const {
             register,
             formState: { errors },
@@ -49,7 +49,6 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
                         )}
                         aria-invalid={fieldError ? 'true' : 'false'}
                         aria-describedby={fieldError ? `${name}-error` : undefined}
-                        ref={ref}
                         {...props}
                     />
                 </div>

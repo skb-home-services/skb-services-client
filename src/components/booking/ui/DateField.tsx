@@ -19,7 +19,7 @@ interface DateFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'na
 }
 
 export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(
-    ({ name, label, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }, ref) => {
+    ({ name, label, required = false, icon: Icon, focused = false, onFocus, onBlur, className, ...props }) => {
         const {
             register,
             formState: { errors },
@@ -48,7 +48,6 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(
                         )}
                         aria-invalid={fieldError ? 'true' : 'false'}
                         aria-describedby={fieldError ? `${name}-error` : undefined}
-                        ref={ref}
                         {...props}
                     />
                 </div>

@@ -55,16 +55,15 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
             </FormField>
 
             <div className="grid gap-4 sm:grid-cols-3">
-                <InputField
-                    name="address.city"
-                    label="City"
-                    placeholder="Kathmandu"
-                    icon={Building}
-                    required
-                    focused={focusedField === 'city'}
-                    onFocus={() => onFieldFocus('city')}
-                    onBlur={onFieldBlur}
-                />
+                <FormField id="address.city" label="City" required error={addressErrors?.city?.message}>
+                    <Input
+                        id="address.city"
+                        {...register('address.city')}
+                        placeholder="Bagmati"
+                        className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
+                        aria-invalid={addressErrors?.city ? 'true' : 'false'}
+                    />
+                </FormField>
 
                 <FormField id="address.state" label="State" required error={addressErrors?.state?.message}>
                     <Input
