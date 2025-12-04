@@ -22,8 +22,8 @@ This document is aimed at **developers** working on the project (setup, architec
 ### Getting Started
 
 - **Prerequisites**
-  - **Node.js**: 18+
-  - **Package manager**: `pnpm` (recommended; scripts assume pnpm)
+    - **Node.js**: 18+
+    - **Package manager**: `pnpm` (recommended; scripts assume pnpm)
 
 - **Install & run**
 
@@ -107,16 +107,16 @@ src/
 ### Routing & Layouts
 
 - **Entry layout**: `src/app/layout.tsx`
-- **Public segment**: `src/app/(public)`  
-  - `page.tsx`: landing page
-  - `services/page.tsx`: services listing
-  - `services/[id]/page.tsx`: service detail + booking CTA
-  - `login/page.tsx`, `register/page.tsx`, `inquiry/page.tsx`
-- **User segment**: `src/app/(user)`  
-  - Protected via auth hooks / `useProtectedRoute`
-  - Contains user dashboard, bookings, profile
-- **Admin segment**: `src/app/(admin)`  
-  - Uses `AdminSidebar` and various admin pages (bookings, services, users, inquiries, etc.)
+- **Public segment**: `src/app/(public)`
+    - `page.tsx`: landing page
+    - `services/page.tsx`: services listing
+    - `services/[id]/page.tsx`: service detail + booking CTA
+    - `login/page.tsx`, `register/page.tsx`, `inquiry/page.tsx`
+- **User segment**: `src/app/(user)`
+    - Protected via auth hooks / `useProtectedRoute`
+    - Contains user dashboard, bookings, profile
+- **Admin segment**: `src/app/(admin)`
+    - Uses `AdminSidebar` and various admin pages (bookings, services, users, inquiries, etc.)
 
 When adding new routes:
 
@@ -128,19 +128,19 @@ When adding new routes:
 ### Data Fetching & API Layer
 
 - **Axios client**: `lib/apiClient.ts`
-  - Configures base URL from `NEXT_PUBLIC_API_BASE_URL`.
-  - Central place for interceptors (auth headers, error handling).
+    - Configures base URL from `NEXT_PUBLIC_API_BASE_URL`.
+    - Central place for interceptors (auth headers, error handling).
 
 - **Service modules** (API wrappers): `src/services/*`
-  - `bookingService.ts`, `serviceService.ts`, `userService.ts`, `subscriptionService.ts`, etc.
-  - Each exposes typed functions like `getBookings`, `createBooking`, `getServices`, etc.
+    - `bookingService.ts`, `serviceService.ts`, `userService.ts`, `subscriptionService.ts`, etc.
+    - Each exposes typed functions like `getBookings`, `createBooking`, `getServices`, etc.
 
 - **React Query integration**:
-  - Query keys are centralized in `lib/queryKeys.ts`.
-  - Domain-specific hooks in `src/hooks` (e.g. `useBookings`, `useAdminBookings`, `useServiceDetail`) compose:
-    - the correct query key
-    - the matching service function
-    - sensible defaults (stale times, enabled flags)
+    - Query keys are centralized in `lib/queryKeys.ts`.
+    - Domain-specific hooks in `src/hooks` (e.g. `useBookings`, `useAdminBookings`, `useServiceDetail`) compose:
+        - the correct query key
+        - the matching service function
+        - sensible defaults (stale times, enabled flags)
 
 **Recommended pattern for new API features**
 
@@ -155,10 +155,10 @@ When adding new routes:
 
 - **Firebase client**: `lib/firebase/client.ts`
 - **Auth provider**: `providers/AuthProvider.tsx`
-  - Wraps the app and exposes the current user + role (user/admin) via context/hooks.
+    - Wraps the app and exposes the current user + role (user/admin) via context/hooks.
 - **Protected routing**:
-  - `hooks/useProtectedRoute.ts` enforces redirects for unauthenticated users.
-  - Admin routes additionally check for admin role.
+    - `hooks/useProtectedRoute.ts` enforces redirects for unauthenticated users.
+    - Admin routes additionally check for admin role.
 
 **Adding auth-dependent features**
 
@@ -171,14 +171,14 @@ When adding new routes:
 ### Forms & Validation
 
 - **Forms** use:
-  - `react-hook-form` for state
-  - `@hookform/resolvers/zod` for schema-based validation
-  - Zod schemas from `lib/validations/*`
+    - `react-hook-form` for state
+    - `@hookform/resolvers/zod` for schema-based validation
+    - Zod schemas from `lib/validations/*`
 
 - Typical pattern:
-  - Define/extend Zod schema in `lib/validations/<domain>.ts`.
-  - Use that schema with `useForm` in the relevant component (often in `components/<domain>`).
-  - Submit via the corresponding `services/<domain>Service.ts` function, wrapped in a mutation hook from `hooks/`.
+    - Define/extend Zod schema in `lib/validations/<domain>.ts`.
+    - Use that schema with `useForm` in the relevant component (often in `components/<domain>`).
+    - Submit via the corresponding `services/<domain>Service.ts` function, wrapped in a mutation hook from `hooks/`.
 
 When creating a new form:
 
@@ -191,8 +191,8 @@ When creating a new form:
 
 - **Tailwind CSS**: Configured via `tailwind.config.ts` and `src/styles/globals.css`.
 - **shadcn/ui + Radix UI**:
-  - Generic UI primitives in `components/ui`.
-  - Feature-specific compositions in `components/<domain>`.
+    - Generic UI primitives in `components/ui`.
+    - Feature-specific compositions in `components/<domain>`.
 - **Icons**: Centralized exports in `lib/icons.ts` (prefer importing from there).
 
 Guidelines:
@@ -215,9 +215,9 @@ pnpm fix        # lint:fix + format
 ```
 
 - **Husky + lint-staged**:
-  - Configured in `package.json` (`prepare` script installs Husky).
-  - On commit, staged JS/TS files run `eslint --fix` and `prettier --write`.
-  - JSON/Markdown/CSS files are formatted with Prettier.
+    - Configured in `package.json` (`prepare` script installs Husky).
+    - On commit, staged JS/TS files run `eslint --fix` and `prettier --write`.
+    - JSON/Markdown/CSS files are formatted with Prettier.
 
 Before pushing:
 
@@ -228,19 +228,19 @@ Before pushing:
 ### Adding a New Feature (Checklist)
 
 - **API**
-  - Add endpoint wrapper in `src/services/*`.
-  - Add query/mutation keys in `lib/queryKeys.ts` if needed.
+    - Add endpoint wrapper in `src/services/*`.
+    - Add query/mutation keys in `lib/queryKeys.ts` if needed.
 - **Types**
-  - Update or add types under `src/types/*`.
+    - Update or add types under `src/types/*`.
 - **Validation**
-  - Add or update Zod schemas in `lib/validations/*`.
+    - Add or update Zod schemas in `lib/validations/*`.
 - **Hooks**
-  - Create/extend domain hooks in `src/hooks/*` to encapsulate data fetching/mutations.
+    - Create/extend domain hooks in `src/hooks/*` to encapsulate data fetching/mutations.
 - **UI**
-  - Use `components/<domain>` for feature-specific components.
-  - Reuse `components/ui` and `components/common` atoms.
+    - Use `components/<domain>` for feature-specific components.
+    - Reuse `components/ui` and `components/common` atoms.
 - **Routing**
-  - Add/update routes in the right app segment: `(public)`, `(user)`, or `(admin)`.
+    - Add/update routes in the right app segment: `(public)`, `(user)`, or `(admin)`.
 
 ---
 
@@ -261,4 +261,3 @@ pnpm start
 ### License
 
 Private – All rights reserved. Do not distribute without permission.
-
