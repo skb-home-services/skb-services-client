@@ -18,6 +18,7 @@ import { useAuth } from '@/providers/AuthProvider';
 import { getInitials } from '@/lib/utils';
 import { NAV_ITEMS } from '@/configs/config';
 import { Logo } from './Logo';
+import { useProfile } from '@/hooks/useProfile';
 
 type NavItem = (typeof NAV_ITEMS)[number];
 
@@ -48,6 +49,11 @@ const UserMenu = () => {
     const router = useRouter();
     const isAdmin = useAuth().roles.includes('admin');
 
+    const { userProfile, authUser, previewUrl } = useProfile();
+
+    const displayName = userProfile?.displayName || authUser?.displayName || 'User';
+    const currentImageUrl = previewUrl || userProfile?.photoURL || authUser?.photoURL || '';
+
     const handleSignOut = async () => {
         await signOut();
         router.push('/');
@@ -58,14 +64,14 @@ const UserMenu = () => {
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full" aria-label="User menu">
                     <Avatar className="h-8 w-8">
-                        <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
-                        <AvatarFallback>{getInitials(user?.displayName || user?.email || 'U')}</AvatarFallback>
+                        <AvatarImage src={currentImageUrl} alt={displayName || 'User'} />
+                        <AvatarFallback>{getInitials(displayName || user?.email || 'U')}</AvatarFallback>
                     </Avatar>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
                 <div className="p-2">
-                    {user?.displayName && <p className="font-medium truncate">{user.displayName}</p>}
+                    {displayName && <p className="font-medium truncate">{displayName}</p>}
                     {user?.email && <p className="text-sm text-muted-foreground truncate">{user.email}</p>}
                 </div>
                 <DropdownMenuSeparator />
