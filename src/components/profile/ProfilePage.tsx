@@ -36,7 +36,7 @@ export function ProfilePage() {
     const displayName = userProfile?.displayName || authUser?.displayName || 'User';
     const email = userProfile?.email || authUser?.email || '';
     const emailVerified = authUser?.emailVerified || false;
-    const currentImageUrl = previewUrl || userProfile?.photoURL || authUser?.photoURL || undefined;
+    const currentImageUrl = previewUrl || userProfile?.photoURL || authUser?.photoURL || null;
     const fallbackInitials = getInitials(displayName || email || 'U');
 
     // Get the current image URL for avatar (excluding preview since it's handled separately)
@@ -52,7 +52,7 @@ export function ProfilePage() {
                 {/* Left Column - Avatar & Account Stats */}
                 <div className="lg:col-span-1">
                     <AvatarSection
-                        previewUrl={previewUrl}
+                        previewUrl={currentImageUrl}
                         currentImageUrl={avatarImageUrl}
                         fallbackInitials={fallbackInitials}
                         onImageChange={handleImageChange}
@@ -92,7 +92,6 @@ export function ProfilePage() {
                                     )}
 
                                     <PersonalInfoSection email={email} emailVerified={emailVerified} />
-
                                     <PhoneSection />
 
                                     <FormActions hasChanges={hasChanges} isSubmitting={isSubmitting} />
