@@ -81,6 +81,7 @@ export function SubscriptionsTable({ subscriptions, totalCount, loading, hasFilt
             <CardHeader className="border-b bg-muted/30">
                 <CardTitle className="text-lg">Subscriptions ({totalCount})</CardTitle>
             </CardHeader>
+
             <CardContent className="p-0">
                 <div className="hidden md:block">
                     <table className="w-full text-sm" role="table">
@@ -104,13 +105,16 @@ export function SubscriptionsTable({ subscriptions, totalCount, loading, hasFilt
                                         <div className="font-semibold">{subscription.customer?.fullName ?? 'Unknown customer'}</div>
                                         <p className="text-muted-foreground text-xs">{subscription.customer?.email ?? 'No email'}</p>
                                     </td>
+
                                     <td className="px-6 py-4">
                                         <div className="font-medium text-primary">{subscription.service?.name ?? 'Unknown service'}</div>
                                         <p className="text-muted-foreground text-xs">{subscription.service?.category}</p>
                                     </td>
+
                                     <td className="px-6 py-4">
                                         <SubscriptionStatusBadge status={subscription.status} />
                                     </td>
+
                                     <td className="px-6 py-4">
                                         {subscription.channels.length > 0 ? (
                                             <div className="flex flex-wrap gap-1.5">

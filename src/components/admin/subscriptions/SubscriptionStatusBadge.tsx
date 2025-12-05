@@ -16,7 +16,6 @@ export function SubscriptionStatusBadge({ status, srLabel }: SubscriptionStatusB
             className={`inline-flex items-center gap-2 rounded-full border ${styles.badge}`}
             aria-label={srLabel ?? `${styles.label} subscription`}
         >
-            <span className={`h-2 w-2 rounded-full ${styles.dot}`} aria-hidden="true" />
             {styles.label}
         </Badge>
     );
