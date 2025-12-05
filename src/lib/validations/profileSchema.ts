@@ -3,8 +3,8 @@ import { phoneNumberSchema } from './phoneSchema';
 import { imageValidation } from './imageSchema';
 
 export const profileSchema = z.object({
-    displayName: z.string().optional(),
-    phone: phoneNumberSchema.optional(),
+    displayName: z.string().min(1, 'Display name is required'),
+    phone: phoneNumberSchema,
     profile_image: imageValidation.optional(),
 });
 

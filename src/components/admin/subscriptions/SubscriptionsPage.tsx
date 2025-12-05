@@ -94,8 +94,7 @@ export function SubscriptionsPage() {
     return (
         <div className="space-y-6">
             <header className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                    <p className="text-sm uppercase text-muted-foreground tracking-wide">Admin · Subscriptions</p>
+                <div className="space-y-1">
                     <h1 className="text-2xl font-bold">{ADMIN_SUBSCRIPTIONS_CONFIG.page.title}</h1>
                     <p className="text-muted-foreground">{ADMIN_SUBSCRIPTIONS_CONFIG.page.description}</p>
                     {lastSynced && <p className="text-xs text-muted-foreground/80 mt-1">Last synced {lastSynced}</p>}

@@ -35,7 +35,6 @@ export interface InquiryStatusConfig {
     description: string;
     icon: LucideIcon;
     badge: string;
-    dot: string;
     iconColor: string;
     iconBg: string;
     srLabel: string;

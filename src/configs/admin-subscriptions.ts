@@ -6,7 +6,6 @@ type ChannelKey = CommunicationChannel;
 interface StatusStyle {
     label: string;
     badge: string;
-    dot: string;
     description: string;
 }
 
@@ -56,37 +55,31 @@ export const ADMIN_SUBSCRIPTIONS_CONFIG = {
             label: 'Active',
             description: 'Currently receiving service reminders',
             badge: 'bg-green-100 text-green-800 border-green-200',
-            dot: 'bg-green-500',
         },
         pending: {
             label: 'Pending',
             description: 'Waiting on customer response',
             badge: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-            dot: 'bg-yellow-500',
         },
         completed: {
             label: 'Completed',
             description: 'Latest cycle closed successfully',
             badge: 'bg-blue-100 text-blue-800 border-blue-200',
-            dot: 'bg-blue-500',
         },
         declined: {
             label: 'Declined',
             description: 'Customer opted out',
             badge: 'bg-red-100 text-red-800 border-red-200',
-            dot: 'bg-red-500',
         },
         paused: {
             label: 'Paused',
             description: 'Temporarily on hold',
             badge: 'bg-gray-100 text-gray-800 border-gray-200',
-            dot: 'bg-gray-500',
         },
         not_reachable: {
             label: 'Not Reachable',
             description: 'Attempts were unsuccessful',
             badge: 'bg-orange-100 text-orange-800 border-orange-200',
-            dot: 'bg-orange-500',
         },
     } as Record<ServiceSubscriptionStatus, StatusStyle>,
     channels: {
