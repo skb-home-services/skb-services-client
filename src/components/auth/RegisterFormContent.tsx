@@ -17,7 +17,6 @@ export const RegisterFormContent = () => {
     return (
         <div className="relative min-h-[calc(100vh-8rem)] flex items-center justify-center overflow-hidden py-12 px-4">
             <BackgroundEffects />
-
             <div className="relative w-full max-w-md animate-fade-in-up">
                 <div
                     className={cn(

@@ -5,6 +5,12 @@ export const AUTH_CONFIG = {
         redirectPath: '/user/dashboard',
     },
 
+    reset: {
+        title: 'Reset Password',
+        subtitle: 'Reset your account password',
+        redirectPath: '/login',
+    },
+
     google: {
         clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || '',
         scope: 'profile email',

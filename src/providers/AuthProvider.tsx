@@ -9,12 +9,14 @@ import {
     signInWithGoogle,
     signOut as firebaseSignOut,
     getFirebaseIdToken,
+    resetPassword as firebaseResetPassword,
 } from '@/lib/firebase/client';
 import type { AuthState, AuthUser } from '@/types';
 
 interface AuthContextType extends AuthState {
     signIn: (email: string, password: string) => Promise<void>;
     signUp: (email: string, password: string) => Promise<void>;
+    resetPassword: (email: string) => Promise<void>;
     signInGoogle: () => Promise<void>;
     signOut: () => Promise<void>;
     refreshToken: () => Promise<string | null>;
@@ -94,6 +96,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return token;
     };
 
+    const resetPassword = async (email: string) => {
+        await firebaseResetPassword(email);
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -103,6 +109,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 signInGoogle,
                 signOut,
                 refreshToken,
+                resetPassword,
             }}
         >
             {children}
