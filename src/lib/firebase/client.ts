@@ -8,6 +8,7 @@ import {
     signOut as firebaseSignOut,
     onAuthStateChanged as firebaseOnAuthStateChanged,
     User,
+    sendPasswordResetEmail,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -45,6 +46,10 @@ export async function signOut() {
 
 export function onAuthStateChanged(callback: (user: User | null) => void) {
     return firebaseOnAuthStateChanged(auth, callback);
+}
+
+export function resetPassword(email: string) {
+    return sendPasswordResetEmail(auth, email);
 }
 
 /**

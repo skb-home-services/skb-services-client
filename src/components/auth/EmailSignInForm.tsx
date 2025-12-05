@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { FormField } from './FormField';
 import { useLoginForm } from '@/hooks/useLoginForm';
 import { AUTH_CONFIG } from '@/configs/auth';
+import Link from 'next/link';
 
 interface EmailSignInFormProps {
     onSubmit: (data: any) => Promise<void>;
@@ -20,6 +21,7 @@ export const EmailSignInForm = ({ onSubmit }: EmailSignInFormProps) => {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <EmailField />
             <PasswordField showPassword={showPassword} onTogglePassword={() => setShowPassword(!showPassword)} />
+            <ResetButton />
             <SubmitButton isLoading={isLoading} />
         </form>
     );
@@ -118,4 +120,12 @@ const SubmitButton = ({ isLoading }: { isLoading: boolean }) => (
             </div>
         )}
     </Button>
+);
+
+const ResetButton = () => (
+    <div className="flex justify-end">
+        <Link href="/reset" className="text-sm text-primary -my-2 hover:text-primary/80 font-extralight">
+            Forgot Password?
+        </Link>
+    </div>
 );

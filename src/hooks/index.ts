@@ -15,3 +15,4 @@ export { useAdminBookings } from './useAdminBookings';
 export { useAdminBookingDetail } from './useAdminBookingDetail';
 export { useAdminInquiries, useInquiriesFilter } from './useAdminInquiries';
 export { useSubscriptions, useSubscription } from './useSubscriptions';
+export { useResetPasswordForm } from './useResetPasswordForm';

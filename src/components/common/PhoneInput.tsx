@@ -38,8 +38,9 @@ export function PhoneInput({ name, label, required = false, className }: PhoneIn
     return (
         <div className={cn('space-y-2', className)}>
             <Label htmlFor={`${name}.number`}>
-                {label} {required && '*'}
+                {label} {required && <span className="text-red-500">*</span>}
             </Label>
+
             <div className="flex gap-2">
                 {/* Country Code Selector */}
                 <Controller
