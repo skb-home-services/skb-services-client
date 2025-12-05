@@ -85,15 +85,8 @@ export function ProfilePage() {
                         <CardContent>
                             <FormProvider {...formMethods}>
                                 <form onSubmit={handleSubmit} className="space-y-6">
-                                    {errors.profile_image && (
-                                        <div className="p-3 bg-destructive/10 rounded-lg" role="alert">
-                                            <p className="text-sm text-destructive">{errors.profile_image.message}</p>
-                                        </div>
-                                    )}
-
                                     <PersonalInfoSection email={email} emailVerified={emailVerified} />
                                     <PhoneSection />
-
                                     <FormActions hasChanges={hasChanges} isSubmitting={isSubmitting} />
                                 </form>
                             </FormProvider>
