@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { LayoutDashboard, Calendar, User } from 'lucide-react';
@@ -8,28 +7,6 @@ import { Header, PageLoader } from '@/components/common';
 import { useProtectedRoute } from '@/hooks/useProtectedRoute';
 import { cn } from '@/lib/utils';
 import { Footer } from '@/components/footer';
-
-export const metadata: Metadata = {
-    title: 'User - SKB Services',
-    description: 'Professional cleaning services in Bangalore',
-    icons: {
-        icon: '/favicon.ico',
-        apple: '/apple-touch-icon.png',
-    },
-    openGraph: {
-        title: 'SKB Services',
-        description: 'Professional cleaning services in Bangalore',
-        url: 'https://www.tankcleaningservice.in',
-        siteName: 'SKB Services',
-        type: 'website',
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: 'SKB Services',
-        description: 'Professional cleaning services in Bangalore',
-        images: ['/android-chrome-512x512.png'],
-    },
-};
 
 const navItems = [
     { href: '/user/dashboard', label: 'Dashboard', icon: LayoutDashboard },
