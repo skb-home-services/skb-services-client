@@ -70,10 +70,6 @@ export const SERVICES_CONFIG = {
             title: 'Watch Video',
             icon: 'Play',
         },
-        areas: {
-            title: 'Service Areas',
-            icon: 'MapPin',
-        },
         sidebar: {
             verifiedLabel: 'Verified Service',
             rating: '5.0',

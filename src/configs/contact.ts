@@ -22,7 +22,6 @@ export const CONTACT_CONFIG = {
     whyContact: [
         'Get personalized service recommendations',
         'Request custom quotes for large projects',
-        'Ask about our service areas',
         'Report issues or provide feedback',
     ] as const,
 

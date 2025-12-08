@@ -14,6 +14,7 @@ import { toast } from '@/hooks/useToast';
 import { createInquiry } from '@/services';
 import { inquirySchema, type InquiryFormData } from '@/lib/validations';
 import { cn } from '@/lib/utils';
+import { CONTACT_CONFIG } from '@/configs/contact';
 
 // Office location (mock coordinates for Kathmandu, Nepal)
 const OFFICE_LOCATION = {
@@ -180,12 +181,7 @@ export default function InquiryPage() {
                                 <CardTitle className="text-lg">Why Contact Us?</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-3">
-                                {[
-                                    'Get personalized service recommendations',
-                                    'Request custom quotes for large projects',
-                                    'Ask about our service areas',
-                                    'Report issues or provide feedback',
-                                ].map((item, index) => (
+                                {CONTACT_CONFIG.whyContact.map((item, index) => (
                                     <div key={index} className="flex items-start gap-3">
                                         <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                                         <span className="text-sm text-muted-foreground">{item}</span>
