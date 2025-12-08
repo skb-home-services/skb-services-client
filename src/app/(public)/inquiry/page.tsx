@@ -16,21 +16,6 @@ import { inquirySchema, type InquiryFormData } from '@/lib/validations';
 import { cn } from '@/lib/utils';
 import { CONTACT_CONFIG } from '@/configs/contact';
 
-// Office location (mock coordinates for Kathmandu, Nepal)
-const OFFICE_LOCATION = {
-    lat: 27.7172,
-    lng: 85.324,
-    address: 'Thamel, Kathmandu 44600, Nepal',
-    googleMapsUrl: 'https://maps.google.com/?q=27.7172,85.3240',
-};
-
-// Contact information
-const CONTACT_INFO = {
-    phone: '+977 9840282545',
-    email: 'contact@skbservices.com',
-    hours: 'Mon-Sat, 9:00 AM - 6:00 PM',
-};
-
 export default function InquiryPage() {
     const methods = useForm<InquiryFormData>({
         resolver: zodResolver(inquirySchema),
@@ -93,15 +78,15 @@ export default function InquiryPage() {
                         <div className="space-y-4">
                             {/* Phone Card */}
                             <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="block">
+                                <a href={`tel:${CONTACT_CONFIG.contactInfo.phone.replace(/\s/g, '')}`} className="block">
                                     <CardContent className="flex items-center gap-4 p-5">
                                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-100 group-hover:bg-green-200 transition-colors">
                                             <Phone className="h-6 w-6 text-green-600" />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Call Us</h3>
-                                            <p className="text-primary font-medium">{CONTACT_INFO.phone}</p>
-                                            <p className="text-sm text-muted-foreground">{CONTACT_INFO.hours}</p>
+                                            <p className="text-primary font-medium">{CONTACT_CONFIG.contactInfo.phone}</p>
+                                            <p className="text-sm text-muted-foreground">{CONTACT_CONFIG.office.hours}</p>
                                         </div>
                                         <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                                     </CardContent>
@@ -110,14 +95,14 @@ export default function InquiryPage() {
 
                             {/* Email Card */}
                             <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a href={`mailto:${CONTACT_INFO.email}`} className="block">
+                                <a href={`mailto:${CONTACT_CONFIG.contactInfo.email}`} className="block">
                                     <CardContent className="flex items-center gap-4 p-5">
                                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-100 group-hover:bg-blue-200 transition-colors">
                                             <Mail className="h-6 w-6 text-blue-600" />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Email Us</h3>
-                                            <p className="text-primary font-medium truncate">{CONTACT_INFO.email}</p>
+                                            <p className="text-primary font-medium truncate">{CONTACT_CONFIG.contactInfo.email}</p>
                                             <p className="text-sm text-muted-foreground">We reply within 24 hours</p>
                                         </div>
                                         <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -127,14 +112,19 @@ export default function InquiryPage() {
 
                             {/* Office Location Card */}
                             <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a href={OFFICE_LOCATION.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="block">
+                                <a
+                                    href={CONTACT_CONFIG.office.location.googleMapsUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block"
+                                >
                                     <CardContent className="flex items-center gap-4 p-5">
                                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-100 group-hover:bg-amber-200 transition-colors">
                                             <MapPin className="h-6 w-6 text-amber-600" />
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Visit Us</h3>
-                                            <p className="text-muted-foreground text-sm">{OFFICE_LOCATION.address}</p>
+                                            <p className="text-muted-foreground text-sm">{CONTACT_CONFIG.office.location.address}</p>
                                             <p className="text-sm text-primary font-medium">Get Directions →</p>
                                         </div>
                                     </CardContent>
@@ -146,7 +136,7 @@ export default function InquiryPage() {
                         <Card className="border-0 shadow-sm overflow-hidden">
                             <div className="relative aspect-[4/3] w-full bg-muted">
                                 <iframe
-                                    src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2587!2d${OFFICE_LOCATION.lng}!3d${OFFICE_LOCATION.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQzJzAxLjkiTiA4NcKwMTknMjYuNCJF!5e0!3m2!1sen!2snp!4v1635000000000!5m2!1sen!2snp`}
+                                    src={`https://www.google.com/maps?q=${CONTACT_CONFIG.office.location.lat},${CONTACT_CONFIG.office.location.lng}&hl=en&z=15&output=embed`}
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
@@ -161,10 +151,10 @@ export default function InquiryPage() {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                         <Clock className="h-4 w-4" />
-                                        <span>Open {CONTACT_INFO.hours}</span>
+                                        <span>Open {CONTACT_CONFIG.office.hours}</span>
                                     </div>
                                     <a
-                                        href={OFFICE_LOCATION.googleMapsUrl}
+                                        href={CONTACT_CONFIG.office.location.googleMapsUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-sm text-primary font-medium hover:underline"

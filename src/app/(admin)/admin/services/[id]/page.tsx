@@ -350,7 +350,7 @@ export default function EditServicePage() {
 
                         <div className="grid gap-4 sm:grid-cols-2">
                             <div className="space-y-2">
-                                <Label htmlFor="baseCost">Base Cost (NPR) *</Label>
+                                <Label htmlFor="baseCost">Base Cost (INR) *</Label>
                                 <Input id="baseCost" type="number" {...register('baseCost')} />
                                 {errors.baseCost && <p className="text-sm text-destructive">{errors.baseCost.message}</p>}
                             </div>

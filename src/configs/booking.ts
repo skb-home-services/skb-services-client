@@ -14,7 +14,7 @@ export const BOOKING_CONFIG = {
             iconColor: 'text-primary',
         },
         address: {
-            title: 'Service Address',
+            title: 'Address',
             description: 'Where should we provide the service?',
             icon: 'MapPin',
             gradient: 'from-emerald-500/5 to-transparent',
@@ -77,23 +77,23 @@ export const BOOKING_CONFIG = {
         },
         city: {
             label: 'City',
-            placeholder: 'Kathmandu',
+            placeholder: 'Bengaluru',
             icon: 'Building',
             required: true,
         },
         state: {
             label: 'State',
-            placeholder: 'Bagmati',
+            placeholder: 'Karnataka',
             required: true,
         },
         pincode: {
             label: 'Pincode',
-            placeholder: '44600',
+            placeholder: '560001',
             required: true,
         },
         landmark: {
             label: 'Landmark',
-            placeholder: 'Near Durbar Marg',
+            placeholder: 'Near MG Road',
             required: false,
         },
         date: {

@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,6 +14,7 @@ import {
 } from '@/lib/validations';
 import { cn } from '@/lib/utils';
 import type { ManualCustomer } from '@/types';
+import { BOOKING_CONFIG } from '@/configs/booking';
 
 interface CustomerFormProps {
     customer?: ManualCustomer;
@@ -175,7 +176,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                                 <Input
                                     id="address.state"
                                     {...form.register('address.state')}
-                                    placeholder="Bagmati"
+                                    placeholder={BOOKING_CONFIG.fields.state.placeholder}
                                     className={cn(form.formState.errors.address?.state && 'border-destructive')}
                                 />
                                 {form.formState.errors.address?.state && (
@@ -201,7 +202,11 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
 
                         <div className="space-y-2">
                             <Label htmlFor="address.landmark">Landmark</Label>
-                            <Input id="address.landmark" {...form.register('address.landmark')} placeholder="Near Durbar Marg" />
+                            <Input
+                                id="address.landmark"
+                                {...form.register('address.landmark')}
+                                placeholder={BOOKING_CONFIG.fields.landmark.placeholder}
+                            />
                         </div>
                     </div>
                 </div>

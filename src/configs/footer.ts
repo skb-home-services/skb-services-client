@@ -1,13 +1,14 @@
 export const FOOTER_CONFIG = {
     brand: {
         name: 'SKB Services',
-        tagline: 'Professional home services at your doorstep. Quality work, trusted professionals, guaranteed satisfaction.',
+        tagline:
+            'We specialize in Tank, Well, Sump, Solar and Overhead/Underground water tank cleaning services across Bangalore. Along with the Tank rent for the construction works.',
     },
 
     socialLinks: [
         {
             icon: 'Facebook' as const,
-            href: '#',
+            href: 'https://www.facebook.com/share/17QUs5cSgq',
             label: 'Facebook',
         },
         {
@@ -17,7 +18,7 @@ export const FOOTER_CONFIG = {
         },
         {
             icon: 'Instagram' as const,
-            href: '#',
+            href: 'https://www.instagram.com/skb_cleaning_services',
             label: 'Instagram',
         },
         {
@@ -45,11 +46,11 @@ export const FOOTER_CONFIG = {
     },
 
     contactInfo: {
-        address: 'Kathmandu, Nepal',
-        email: 'contact@skbservices.com',
-        phone: '+977 9840282545',
-        emailHref: 'mailto:contact@skbservices.com',
-        phoneHref: 'tel:+9779840282545',
+        address: 'Bangalore, India',
+        email: 'skbtankcleaning@gmail.com',
+        phone: '+91 81233 20272',
+        emailHref: 'mailto:skbtankcleaning@gmail.com',
+        phoneHref: 'tel:+91 81233 20272',
     },
 
     legalLinks: [

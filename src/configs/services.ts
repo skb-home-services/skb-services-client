@@ -2,13 +2,9 @@ export const SERVICES_CONFIG = {
     itemsPerPage: 12,
     categories: [
         { value: 'all', label: 'All Categories' },
+        { value: 'household', label: 'Household' },
         { value: 'cleaning', label: 'Cleaning' },
         { value: 'plumbing', label: 'Plumbing' },
-        { value: 'electrical', label: 'Electrical' },
-        { value: 'carpentry', label: 'Carpentry' },
-        { value: 'painting', label: 'Painting' },
-        { value: 'pest-control', label: 'Pest Control' },
-        { value: 'appliance', label: 'Appliance Repair' },
         { value: 'other', label: 'Other' },
     ],
     sortOptions: [
@@ -20,11 +16,11 @@ export const SERVICES_CONFIG = {
     ],
     hero: {
         title: 'Our Services',
-        description: 'Browse our range of professional home services',
+        description: 'Browse our range of professional services',
         icon: 'Sparkles',
     },
     search: {
-        placeholder: 'Search services by name, description, or category...',
+        placeholder: 'Search services by name...',
     },
     filters: {
         categoryLabel: 'Category',
@@ -106,8 +102,8 @@ export const SERVICES_CONFIG = {
             ],
         },
         pricing: {
-            currency: 'NPR',
-            defaultCurrency: 'NPR',
+            currency: 'INR',
+            defaultCurrency: 'INR',
         },
     },
 } as const;
