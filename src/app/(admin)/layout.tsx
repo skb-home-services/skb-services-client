@@ -4,6 +4,29 @@ import { useState } from 'react';
 import { Header, PageLoader } from '@/components/common';
 import { AdminSidebar } from '@/components/admin';
 import { useProtectedRoute } from '@/hooks/useProtectedRoute';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Admin - SKB Services',
+    description: 'Professional cleaning services in Bangalore',
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/apple-touch-icon.png',
+    },
+    openGraph: {
+        title: 'SKB Services',
+        description: 'Professional cleaning services in Bangalore',
+        url: 'https://www.tankcleaningservice.in',
+        siteName: 'SKB Services',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'SKB Services',
+        description: 'Professional cleaning services in Bangalore',
+        images: ['/android-chrome-512x512.png'],
+    },
+};
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
