@@ -22,6 +22,13 @@ export const metadata: Metadata = {
         description: 'Professional cleaning services in Bangalore',
         url: 'https://www.tankcleaningservice.in',
         siteName: 'SKB Services',
+        images: [
+            {
+                url: '/android-chrome-512x512.png',
+                width: 1200,
+                height: 630,
+            },
+        ],
         type: 'website',
     },
     twitter: {
