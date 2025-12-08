@@ -1,22 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import {
-    ArrowRight,
-    Shield,
-    Clock,
-    Star,
-    Sparkles,
-    CheckCircle2,
-    Phone,
-    Zap,
-    Users,
-    Award,
-    Wrench,
-    Home,
-    Paintbrush,
-    Droplets,
-} from 'lucide-react';
+import { ArrowRight, Shield, Clock, Star, Sparkles, CheckCircle2, Phone, Zap, Users, Award, Wrench, Sun, Droplets } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -50,10 +35,9 @@ const stats = [
 ];
 
 const services = [
-    { name: 'Home Cleaning', icon: Home, color: 'bg-sky-500' },
-    { name: 'Plumbing', icon: Droplets, color: 'bg-blue-600' },
-    { name: 'Painting', icon: Paintbrush, color: 'bg-rose-500' },
-    { name: 'Repairs', icon: Wrench, color: 'bg-amber-500' },
+    { name: 'Tank Cleaning', icon: Droplets, color: 'bg-sky-500' },
+    { name: 'Solar Cleaning', icon: Sun, color: 'bg-blue-600' },
+    { name: 'Acid Wash', icon: Shield, color: 'bg-green-500' },
 ];
 
 const steps = [
@@ -110,7 +94,7 @@ export default function HomePage() {
                             className="mb-6 text-5xl font-black tracking-tight text-slate-900 md:text-7xl lg:text-8xl animate-fade-in-up"
                             style={{ animationDelay: '100ms' }}
                         >
-                            Home Services
+                            Cleaning Services
                             <span className="block mt-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
                                 Made Simple
                             </span>
@@ -349,7 +333,7 @@ export default function HomePage() {
                         {/* Quick Testimonials */}
                         <div className="mt-12 grid gap-6 md:grid-cols-3 max-w-4xl mx-auto">
                             {[
-                                { quote: "Best home service I've ever used. Professional and punctual!", author: 'Sarah M.' },
+                                { quote: "Best Tank Cleaning service I've ever used. Professional and punctual!", author: 'Sarah M.' },
                                 { quote: 'Amazing quality work at fair prices. Highly recommend!', author: 'Raj K.' },
                                 { quote: 'They transformed my home. Will definitely use again!', author: 'Priya S.' },
                             ].map((testimonial, index) => (

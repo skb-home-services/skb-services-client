@@ -1,17 +1,17 @@
 export const CONTACT_CONFIG = {
     office: {
         location: {
-            lat: 27.7172,
-            lng: 85.324,
-            address: 'Thamel, Kathmandu 44600, Nepal',
-            googleMapsUrl: 'https://maps.google.com/?q=27.7172,85.3240',
+            lat: 12.9126,
+            lng: 77.5889,
+            address: 'J P Nagar, Bengaluru, Karnataka, India',
+            googleMapsUrl: 'https://maps.google.com/?q=12.9126,77.5889',
         },
         hours: 'Mon-Sat, 9:00 AM - 6:00 PM',
     },
 
     contactInfo: {
-        phone: '+977 9840282545',
-        email: 'contact@skbservices.com',
+        phone: '+91 81233 20272',
+        email: 'skbtankcleaning@gmail.com',
     },
 
     hero: {
@@ -22,7 +22,6 @@ export const CONTACT_CONFIG = {
     whyContact: [
         'Get personalized service recommendations',
         'Request custom quotes for large projects',
-        'Ask about our service areas',
         'Report issues or provide feedback',
     ] as const,
 

@@ -25,13 +25,6 @@ export async function createService(input: CreateServiceInput): Promise<Service>
     if (input.isAvailable !== undefined) formData.append('isAvailable', String(input.isAvailable));
     if (input.youtubeEmbedUrl) formData.append('youtubeEmbedUrl', input.youtubeEmbedUrl);
 
-    // Pin codes covered
-    if (input.pinCodesCovered) {
-        input.pinCodesCovered.forEach((code) => {
-            formData.append('pinCodesCovered[]', code);
-        });
-    }
-
     // Gallery images
     if (input.gallery && input.gallery.length > 0) {
         input.gallery.forEach((file) => {
@@ -61,13 +54,6 @@ export async function updateService(input: UpdateServiceInput): Promise<void> {
     if (input.description) formData.append('description', input.description);
     if (input.isAvailable !== undefined) formData.append('isAvailable', String(input.isAvailable));
     if (input.youtubeEmbedUrl !== undefined) formData.append('youtubeEmbedUrl', input.youtubeEmbedUrl);
-
-    // Pin codes covered
-    if (input.pinCodesCovered) {
-        input.pinCodesCovered.forEach((code) => {
-            formData.append('pinCodesCovered[]', code);
-        });
-    }
 
     // New gallery images
     if (input.gallery && input.gallery.length > 0) {

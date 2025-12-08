@@ -3,7 +3,7 @@ import { ServicesPageContent } from '@/components/services';
 
 export const metadata: Metadata = {
     title: 'Our Services - SKB Services',
-    description: 'Browse our range of professional home services',
+    description: 'Browse our range of professional services',
 };
 
 export default function ServicesPage() {

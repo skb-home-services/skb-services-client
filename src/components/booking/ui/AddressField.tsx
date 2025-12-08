@@ -5,6 +5,7 @@ import { InputField } from './InputField';
 import { FormField } from './FormField';
 import { Input } from '@/components/ui/input';
 import { Home } from 'lucide-react';
+import { BOOKING_CONFIG } from '@/configs/booking';
 
 interface AddressFieldProps {
     focusedField: string | null;
@@ -57,7 +58,7 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
                     <Input
                         id="address.city"
                         {...register('address.city')}
-                        placeholder="Bagmati"
+                        placeholder={BOOKING_CONFIG.fields.city.placeholder}
                         className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
                         aria-invalid={addressErrors?.city ? 'true' : 'false'}
                     />
@@ -67,7 +68,7 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
                     <Input
                         id="address.state"
                         {...register('address.state')}
-                        placeholder="Bagmati"
+                        placeholder={BOOKING_CONFIG.fields.state.placeholder}
                         className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
                         aria-invalid={addressErrors?.state ? 'true' : 'false'}
                     />
@@ -88,7 +89,7 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
                 <Input
                     id="address.landmark"
                     {...register('address.landmark')}
-                    placeholder="Near Durbar Marg"
+                    placeholder={BOOKING_CONFIG.fields.landmark.placeholder}
                     className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
                 />
             </FormField>

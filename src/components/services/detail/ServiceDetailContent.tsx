@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { ImagePreview } from '@/components/ui/image-preview';
 import { HeroGallery } from './HeroGallery';
 import { ServiceDescription } from './ServiceDescription';
-import { ServiceAreas } from './ServiceAreas';
 import { ServiceSidebar } from './ServiceSidebar';
 import { useServiceDetail } from '@/hooks/useServiceDetail';
 import { SERVICES_CONFIG } from '@/configs/services';
@@ -59,7 +58,6 @@ export function ServiceDetailContent() {
                                 onImageClick={openImagePreview}
                             />
                             <ServiceDescription service={service} youtubeVideoId={youtubeVideoId} />
-                            <ServiceAreas service={service} />
                         </div>
 
                         {/* Sidebar */}
