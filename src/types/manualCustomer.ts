@@ -13,7 +13,6 @@ export interface ManualCustomerServiceInfo {
     durationMinutes: number;
     description: string;
     isAvailable: boolean;
-    pinCodesCovered: string[];
     youtubeEmbedUrl?: string;
     createdAt: string;
     updatedAt: string;

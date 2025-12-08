@@ -12,22 +12,16 @@ export interface UseServiceDetailReturn {
     service: Service | undefined;
     isLoading: boolean;
     error: Error | null;
-    // Image preview state
     isImagePreviewOpen: boolean;
     previewStartIndex: number;
     openImagePreview: (index: number) => void;
     closeImagePreview: () => void;
-    // Image data
     mainImage: GalleryImage | undefined;
     galleryImages: GalleryImage[];
     allImageUrls: string[];
-    // YouTube
     youtubeVideoId: string | null;
-    // Like/share
     isLiked: boolean;
     toggleLike: () => void;
-    // Computed values
-    pinCodeCount: number;
 }
 
 export function useServiceDetail(): UseServiceDetailReturn {
@@ -88,11 +82,6 @@ export function useServiceDetail(): UseServiceDetailReturn {
         return extractYouTubeVideoId(service.youtubeEmbedUrl);
     }, [service?.youtubeEmbedUrl]);
 
-    // Memoized pin code count
-    const pinCodeCount = useMemo(() => {
-        return service?.pinCodesCovered?.length || 0;
-    }, [service?.pinCodesCovered]);
-
     return {
         service,
         isLoading,
@@ -107,6 +96,5 @@ export function useServiceDetail(): UseServiceDetailReturn {
         youtubeVideoId,
         isLiked,
         toggleLike,
-        pinCodeCount,
     };
 }

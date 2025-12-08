@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowLeft, X, Plus, ImageIcon, CheckCircle, Save, Eye, Star } from 'lucide-react';
+import { ArrowLeft, X, ImageIcon, CheckCircle, Save, Eye, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -85,7 +85,6 @@ export default function EditServicePage() {
                 durationMinutes: service.durationMinutes,
                 description: service.description,
                 isAvailable: service.isAvailable,
-                pinCodesCovered: service.pinCodesCovered,
                 youtubeEmbedUrl: service.youtubeEmbedUrl,
                 image_ids: [],
                 main_image_id: service.gallery?.find((img) => img.main)?._id,
@@ -97,7 +96,6 @@ export default function EditServicePage() {
         }
     }, [service, reset, setValue]);
 
-    const pinCodes = watch('pinCodesCovered') || [];
     const hasChanges = isDirty || imagesChanged;
 
     const mutation = useMutation({
@@ -142,31 +140,6 @@ export default function EditServicePage() {
         });
     };
 
-    // Pin code handlers
-    const addPinCode = () => {
-        const code = pinCodeInput.trim();
-        if (code && !pinCodes.includes(code)) {
-            setValue('pinCodesCovered', [...pinCodes, code], { shouldDirty: true });
-            setPinCodeInput('');
-        }
-    };
-
-    const removePinCode = (codeToRemove: string) => {
-        setValue(
-            'pinCodesCovered',
-            pinCodes.filter((code) => code !== codeToRemove),
-            { shouldDirty: true }
-        );
-    };
-
-    const handlePinCodeKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            addPinCode();
-        }
-    };
-
-    // Gallery handlers
     const handleGalleryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(e.target.files || []);
         const totalImages = existingGalleryImages.length + newGalleryItems.length;
@@ -391,43 +364,6 @@ export default function EditServicePage() {
                         <div className="space-y-2">
                             <Label htmlFor="description">Description</Label>
                             <Textarea id="description" {...register('description')} rows={4} />
-                        </div>
-
-                        {/* Pin Codes Covered */}
-                        <div className="space-y-2">
-                            <Label>Pin Codes Covered</Label>
-                            <div className="flex gap-2">
-                                <Input
-                                    value={pinCodeInput}
-                                    onChange={(e) => setPinCodeInput(e.target.value)}
-                                    onKeyDown={handlePinCodeKeyDown}
-                                    placeholder="Enter pin code (e.g., 44600)"
-                                    className="flex-1"
-                                />
-                                <Button type="button" onClick={addPinCode} variant="secondary">
-                                    <Plus className="h-4 w-4 mr-1" />
-                                    Add
-                                </Button>
-                            </div>
-                            {pinCodes.length > 0 && (
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                    {pinCodes.map((code) => (
-                                        <span
-                                            key={code}
-                                            className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm"
-                                        >
-                                            {code}
-                                            <button
-                                                type="button"
-                                                onClick={() => removePinCode(code)}
-                                                className="hover:bg-primary/20 rounded-full p-0.5"
-                                            >
-                                                <X className="h-3 w-3" />
-                                            </button>
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
                         </div>
 
                         {/* Image Gallery */}

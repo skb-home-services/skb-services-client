@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, MapPin, Images, Maximize2, ArrowRight } from 'lucide-react';
+import { Clock, Images, Maximize2, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -23,7 +23,6 @@ export function ServiceCard({ service, viewMode = 'grid', onImagePreview }: Serv
     const mainImageUrl = service.mainImage?.url || service.gallery?.find((img) => img.main)?.url;
     const galleryCount = service.gallery?.length || (service.mainImage ? 1 : 0);
     const hasGallery = galleryCount > 1;
-    const pinCodeCount = service.pinCodesCovered?.length || 0;
 
     const handleImageClick = (e: React.MouseEvent) => {
         if (onImagePreview) {
@@ -112,12 +111,6 @@ export function ServiceCard({ service, viewMode = 'grid', onImagePreview }: Serv
                                     <Clock className="h-4 w-4" />
                                     {formatDuration(service.durationMinutes)}
                                 </div>
-                                {pinCodeCount > 0 && (
-                                    <div className="flex items-center gap-1">
-                                        <MapPin className="h-4 w-4" />
-                                        {pinCodeCount} areas
-                                    </div>
-                                )}
                             </div>
                             <Button asChild size="sm" className="rounded-xl gap-1.5">
                                 <Link href={`/services/${service._id}`}>
@@ -204,12 +197,6 @@ export function ServiceCard({ service, viewMode = 'grid', onImagePreview }: Serv
                         <Clock className="h-4 w-4" />
                         {formatDuration(service.durationMinutes)}
                     </div>
-                    {pinCodeCount > 0 && (
-                        <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
-                            {pinCodeCount} areas
-                        </div>
-                    )}
                 </div>
             </CardContent>
 

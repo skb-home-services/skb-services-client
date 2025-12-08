@@ -19,13 +19,10 @@ export interface Service {
     durationMinutes: number;
     description: string;
     isAvailable: boolean;
-    pinCodesCovered: string[];
     youtubeEmbedUrl?: string;
     createdAt: string;
     updatedAt: string;
-    /** Full gallery (returned in single service fetch) */
     gallery?: GalleryImage[];
-    /** Main image only (returned in list responses) */
     mainImage?: MainImage;
 }
 
@@ -51,7 +48,6 @@ export interface CreateServiceInput {
     durationMinutes: number;
     description?: string;
     isAvailable?: boolean;
-    pinCodesCovered?: string[];
     gallery: File[];
     mainFlags: boolean[];
     youtubeEmbedUrl?: string;
@@ -65,14 +61,9 @@ export interface UpdateServiceInput {
     durationMinutes?: number;
     description?: string;
     isAvailable?: boolean;
-    pinCodesCovered?: string[];
-    /** New gallery files to upload */
     gallery?: File[];
-    /** Flags indicating which new files are main images */
     mainFlags?: boolean[];
-    /** IDs of existing images to remove */
     image_ids?: string[];
-    /** ID of an existing image to promote as main */
     main_image_id?: string;
     youtubeEmbedUrl?: string;
 }
