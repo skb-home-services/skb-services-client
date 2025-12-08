@@ -161,7 +161,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                                 <Input
                                     id="address.city"
                                     {...form.register('address.city')}
-                                    placeholder="Kathmandu"
+                                    placeholder={BOOKING_CONFIG.fields.city.placeholder}
                                     className={cn(form.formState.errors.address?.city && 'border-destructive')}
                                 />
                                 {form.formState.errors.address?.city && (
