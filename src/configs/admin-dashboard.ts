@@ -1,4 +1,4 @@
-import { Wrench, Calendar, Users, MessageSquare, LucideIcon } from 'lucide-react';
+import { Wrench, Calendar, Users, UserCog, MessageSquare, LucideIcon, Repeat } from 'lucide-react';
 
 export interface AdminDashboardStats {
     totalServices: number;
@@ -171,7 +171,7 @@ export const ADMIN_DASHBOARD_CONFIG: AdminDashboardConfig = {
             key: 'manualCustomers',
             title: 'Manual Customers',
             description: 'Manage manual customers',
-            icon: Users,
+            icon: UserCog,
             iconBg: 'bg-blue-100',
             iconColor: 'text-blue-600',
             href: '/admin/manual-customers',
@@ -180,7 +180,7 @@ export const ADMIN_DASHBOARD_CONFIG: AdminDashboardConfig = {
             key: 'subscriptions',
             title: 'Subscriptions',
             description: 'Manage subscriptions',
-            icon: MessageSquare,
+            icon: Repeat,
             iconBg: 'bg-green-100',
             iconColor: 'text-green-600',
             href: '/admin/subscriptions',
