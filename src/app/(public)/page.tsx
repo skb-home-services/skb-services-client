@@ -13,25 +13,25 @@ const steps = [
         title: 'Inspection & Preparation',
         description:
             'Our technicians inspect the tank, shut off water supply, and prepare equipment to ensure safe and efficient cleaning.',
-        image: '/process/process-image.jpg',
+        image: '/process/inspection-first.png',
     },
     {
         step: '02',
         title: 'Sludge & Dirt Removal',
         description: 'Accumulated sludge, mud, and impurities are manually removed from the tank bottom and walls.',
-        image: '/process/process-image.jpg',
+        image: '/process/cleaning.webp',
     },
     {
         step: '03',
         title: 'High-Pressure Cleaning & Disinfection',
         description: 'Tank walls are cleaned using high-pressure jets and eco-friendly disinfectants to eliminate bacteria and algae.',
-        image: '/process/process-image.jpg',
+        image: '/process/highpressure.jpg',
     },
     {
         step: '04',
         title: 'Final Rinse & Quality Check',
         description: 'The tank is thoroughly rinsed, refilled, and checked to ensure clean, safe, and odor-free water.',
-        image: '/process/process-image.jpg',
+        image: '/process/quality-check.jpg',
     },
 ];
 
