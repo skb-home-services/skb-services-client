@@ -1,10 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Shield, Clock, Star, Sparkles, CheckCircle2, Phone, Zap, Users, Award, Wrench, Sun, Droplets } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Star, Sparkles, CheckCircle2, Phone, Users, Award, Wrench, Sun, Droplets } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
+
+const steps = [
+    {
+        step: '01',
+        title: 'Inspection & Preparation',
+        description:
+            'Our technicians inspect the tank, shut off water supply, and prepare equipment to ensure safe and efficient cleaning.',
+        image: '/process/process-image.jpg',
+    },
+    {
+        step: '02',
+        title: 'Sludge & Dirt Removal',
+        description: 'Accumulated sludge, mud, and impurities are manually removed from the tank bottom and walls.',
+        image: '/process/process-image.jpg',
+    },
+    {
+        step: '03',
+        title: 'High-Pressure Cleaning & Disinfection',
+        description: 'Tank walls are cleaned using high-pressure jets and eco-friendly disinfectants to eliminate bacteria and algae.',
+        image: '/process/process-image.jpg',
+    },
+    {
+        step: '04',
+        title: 'Final Rinse & Quality Check',
+        description: 'The tank is thoroughly rinsed, refilled, and checked to ensure clean, safe, and odor-free water.',
+        image: '/process/process-image.jpg',
+    },
+];
 
 const features = [
     {
@@ -38,13 +67,6 @@ const services = [
     { name: 'Tank Cleaning', icon: Droplets, color: 'bg-sky-500' },
     { name: 'Solar Cleaning', icon: Sun, color: 'bg-blue-600' },
     { name: 'Acid Wash', icon: Shield, color: 'bg-green-500' },
-];
-
-const steps = [
-    { step: '01', title: 'Browse Services', description: 'Explore our wide range of professional home services' },
-    { step: '02', title: 'Book Online', description: 'Select your preferred date, time, and service details' },
-    { step: '03', title: 'We Arrive', description: 'Our vetted professionals show up ready to work' },
-    { step: '04', title: 'Enjoy Results', description: 'Sit back and enjoy your perfectly serviced home' },
 ];
 
 export default function HomePage() {
@@ -195,29 +217,75 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* Stats Section */}
-            <section className="bg-white py-16 md:py-20">
+            {/* How It Works Section */}
+            <section className="py-8 md:py-16 bg-gradient-to-b from-white to-slate-50">
                 <div className="container-custom">
-                    <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-                        {stats.map((stat, index) => (
-                            <div
-                                key={stat.label}
-                                className="group text-center animate-fade-in-up"
-                                style={{ animationDelay: `${index * 100}ms` }}
-                            >
-                                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 group-hover:from-blue-100 group-hover:to-indigo-200 transition-colors">
-                                    <stat.icon className="h-7 w-7 text-blue-600" />
+                    {/* Header */}
+                    <div className="mb-20 text-center">
+                        <Badge variant="outline" className="mb-4 px-4 py-1.5 text-sm font-medium border-blue-200 text-blue-700 bg-blue-50">
+                            Our Cleaning Process
+                        </Badge>
+
+                        <h2 className="mb-5 text-3xl font-black text-slate-900 md:text-5xl">Step-by-Step Tank Cleaning Pipeline</h2>
+
+                        <p className="mx-auto max-w-2xl text-lg text-slate-600">
+                            We follow a structured and hygienic workflow to ensure your water tank is thoroughly cleaned, disinfected, and
+                            safe to use.
+                        </p>
+                    </div>
+
+                    {/* Pipeline */}
+                    <div className="relative">
+                        {/* Main Horizontal Line */}
+                        <div className="absolute left-0 right-0 top-8 hidden h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-200 lg:block" />
+
+                        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+                            {steps.map((step, index) => (
+                                <div
+                                    key={step.step}
+                                    className="relative group animate-fade-in-up"
+                                    style={{ animationDelay: `${index * 150}ms` }}
+                                >
+                                    {/* Step Indicator */}
+                                    <div
+                                        className="relative z-10 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full 
+                            bg-gradient-to-br from-blue-600 to-indigo-600 text-xl font-bold text-white 
+                            shadow-lg shadow-blue-500/30 ring-8 ring-white"
+                                    >
+                                        {step.step}
+                                    </div>
+
+                                    {/* Card */}
+                                    <div
+                                        className="rounded-2xl border border-slate-200 bg-white p-6 text-center 
+                            transition-all duration-300 hover:-translate-y-2 hover:border-blue-300 hover:shadow-xl"
+                                    >
+                                        {/* Image */}
+                                        <div className="mb-4 overflow-hidden rounded-xl">
+                                            <Image
+                                                src={step.image}
+                                                alt={step.title}
+                                                width={400}
+                                                height={240}
+                                                className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                        </div>
+
+                                        {/* Title */}
+                                        <h3 className="mb-2 text-lg font-bold text-slate-900">{step.title}</h3>
+
+                                        {/* Description */}
+                                        <p className="text-sm leading-relaxed text-slate-600">{step.description}</p>
+                                    </div>
                                 </div>
-                                <div className="text-3xl font-black text-slate-900 md:text-4xl">{stat.value}</div>
-                                <div className="mt-1 text-sm font-medium text-slate-500">{stat.label}</div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Features Section */}
-            <section className="relative py-20 md:py-28 overflow-hidden">
+            <section className="relative py-8 md:py-16 overflow-hidden">
                 {/* Background */}
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
                 <div className="absolute inset-0 bg-dot-pattern opacity-30" />
@@ -258,42 +326,21 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* How It Works Section */}
-            <section className="py-20 md:py-28 bg-white">
+            {/* Stats Section */}
+            <section className="bg-white py-16 md:py-16">
                 <div className="container-custom">
-                    <div className="mb-16 text-center">
-                        <Badge
-                            variant="outline"
-                            className="mb-4 px-4 py-1.5 text-sm font-medium border-emerald-200 text-emerald-700 bg-emerald-50"
-                        >
-                            Simple Process
-                        </Badge>
-                        <h2 className="mb-4 text-3xl font-black text-slate-900 md:text-5xl">How It Works</h2>
-                        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                            Getting professional help for your home has never been easier. Just four simple steps.
-                        </p>
-                    </div>
-
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                        {steps.map((step, index) => (
+                    <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+                        {stats.map((stat, index) => (
                             <div
-                                key={step.step}
-                                className="group relative animate-fade-in-up"
+                                key={stat.label}
+                                className="group text-center animate-fade-in-up"
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
-                                {/* Connector Line */}
-                                {index < steps.length - 1 && (
-                                    <div className="hidden lg:block absolute top-12 left-[60%] w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent" />
-                                )}
-
-                                <div className="relative rounded-2xl border-2 border-slate-100 bg-white p-6 transition-all hover:border-blue-200 hover:shadow-lg">
-                                    {/* Step Number */}
-                                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-lg font-bold text-white shadow-lg shadow-blue-500/25">
-                                        {step.step}
-                                    </div>
-                                    <h3 className="mb-2 text-lg font-bold text-slate-900">{step.title}</h3>
-                                    <p className="text-slate-600 text-sm">{step.description}</p>
+                                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 group-hover:from-blue-100 group-hover:to-indigo-200 transition-colors">
+                                    <stat.icon className="h-7 w-7 text-blue-600" />
                                 </div>
+                                <div className="text-3xl font-black text-slate-900 md:text-4xl">{stat.value}</div>
+                                <div className="mt-1 text-sm font-medium text-slate-500">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -301,7 +348,7 @@ export default function HomePage() {
             </section>
 
             {/* Testimonial/Social Proof Section */}
-            <section className="relative py-20 md:py-28 overflow-hidden">
+            <section className="relative py-10 md:py-16 overflow-hidden">
                 {/* Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700" />
                 <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -346,54 +393,6 @@ export default function HomePage() {
                                     <p className="text-sm font-semibold text-blue-200">— {testimonial.author}</p>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-20 md:py-28 bg-white">
-                <div className="container-custom">
-                    <div className="relative rounded-3xl overflow-hidden">
-                        {/* Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
-                        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-
-                        {/* Decorative Gradient */}
-                        <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-blue-500/30 blur-3xl" />
-                        <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-indigo-500/30 blur-3xl" />
-
-                        <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center">
-                            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 mb-6">
-                                <Zap className="h-4 w-4 text-amber-400" />
-                                Ready to get started?
-                            </div>
-
-                            <h2 className="mb-4 text-3xl font-black text-white md:text-5xl">Transform Your Home Today</h2>
-                            <p className="mb-10 text-lg text-slate-300 max-w-xl mx-auto">
-                                Book a service today and experience the difference. First-time customers get 10% off!
-                            </p>
-
-                            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                                <Button
-                                    size="lg"
-                                    asChild
-                                    className="group h-14 px-8 text-base font-semibold bg-white text-slate-900 hover:bg-slate-100 shadow-lg transition-all hover:-translate-y-0.5"
-                                >
-                                    <Link href="/services">
-                                        View All Services
-                                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                                    </Link>
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    asChild
-                                    className="h-14 px-8 text-base font-semibold border-2 border-white/30 text-slate-900 hover:bg-white/10 transition-all hover:-translate-y-0.5"
-                                >
-                                    <Link href="/inquiry">Contact Us</Link>
-                                </Button>
-                            </div>
                         </div>
                     </div>
                 </div>
