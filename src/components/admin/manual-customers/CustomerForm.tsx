@@ -52,7 +52,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                   fullName: '',
                   email: undefined,
                   phone: {
-                      region: 'IN',
+                      region: '',
                       number: '',
                   },
                   isActive: true,
