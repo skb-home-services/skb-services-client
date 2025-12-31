@@ -10,4 +10,14 @@ export const addressSchema = z.object({
     landmark: z.string().optional(),
 });
 
+export const manualCustomerAddressSchema = z.object({
+    houseNumber: z.string().trim().optional(),
+    line1: z.string().trim().optional(),
+    line2: z.string().trim().optional(),
+    city: z.string().trim().optional(),
+    state: z.string().trim().optional(),
+    pincode: z.string().trim().optional(),
+    landmark: z.string().optional(),
+});
+
 export type AddressData = z.infer<typeof addressSchema>;

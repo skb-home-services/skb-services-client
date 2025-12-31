@@ -1,4 +1,4 @@
-import { Address, PaginationInfo, PhoneNumber, PhoneNumberInput } from './common';
+import { ManualCustomerAddress, PaginationInfo, PhoneNumber, PhoneNumberInput } from './common';
 import { MainImage } from './service';
 
 export type ManualCustomerServiceChannel = 'whatsapp' | 'email';
@@ -38,7 +38,7 @@ export interface ManualCustomer {
     phone: PhoneNumber;
     email?: string;
     isActive: boolean;
-    address: Address;
+    address: ManualCustomerAddress;
     services: ManualCustomerService[];
     createdAt: string;
     updatedAt: string;
@@ -61,7 +61,7 @@ export interface CreateManualCustomerInput {
     phone: PhoneNumberInput;
     email?: string;
     isActive?: boolean;
-    address: Address;
+    address: ManualCustomerAddress;
 }
 
 export interface UpdateManualCustomerInput {
@@ -70,7 +70,7 @@ export interface UpdateManualCustomerInput {
     phone?: PhoneNumberInput;
     email?: string;
     isActive?: boolean;
-    address?: Address;
+    address: ManualCustomerAddress;
 }
 
 export interface AddManualCustomerServicesInput {

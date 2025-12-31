@@ -168,3 +168,8 @@ export const BOOKING_CONFIG = {
         moreImages: '+{count}',
     },
 } as const;
+
+export const SERVICE_LOCATIONS = {
+    states: ['Karnataka'],
+    defaultState: 'Karnataka',
+} as const;

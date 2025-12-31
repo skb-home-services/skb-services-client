@@ -363,7 +363,7 @@ export default function HomePage() {
                             <Star className="mr-1.5 h-4 w-4 text-amber-400" />
                             Customer Love
                         </Badge>
-                        <h2 className="mb-6 text-3xl font-black md:text-5xl">Loved by Thousands</h2>
+                        <h2 className="mb-6 text-3xl font-black md:text-3xl">Loved by Thousands</h2>
                         <p className="mb-12 text-xl text-blue-100 max-w-2xl mx-auto">
                             Join over 10,000 happy customers who trust us with their home services.
                         </p>

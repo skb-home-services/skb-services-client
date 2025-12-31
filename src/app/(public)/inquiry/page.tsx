@@ -3,7 +3,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { Send, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,7 +14,7 @@ import { toast } from '@/hooks/useToast';
 import { createInquiry } from '@/services';
 import { inquirySchema, type InquiryFormData } from '@/lib/validations';
 import { cn } from '@/lib/utils';
-import { CONTACT_CONFIG } from '@/configs/contact';
+import { ContactSidebar } from '@/components/inquiry/ContactSidebar';
 
 export default function InquiryPage() {
     const methods = useForm<InquiryFormData>({
@@ -53,133 +53,10 @@ export default function InquiryPage() {
 
     return (
         <div className="min-h-screen">
-            {/* Hero Section */}
-            <div className="relative bg-gradient-to-br from-primary/10 via-primary/5 to-background overflow-hidden">
-                <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-                <div className="container-custom relative py-16 md:py-24">
-                    <div className="max-w-2xl mx-auto text-center">
-                        <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl bg-primary/10 mb-6">
-                            <MessageSquare className="h-8 w-8 text-primary" />
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Get in Touch</h1>
-                        <p className="text-lg text-muted-foreground">
-                            Have questions about our services? We&apos;re here to help. Send us a message and we&apos;ll respond as soon as
-                            possible.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
             <div className="container-custom py-12">
                 <div className="grid gap-8 lg:grid-cols-5">
                     {/* Contact Information Sidebar */}
-                    <div className="lg:col-span-2 space-y-6">
-                        {/* Quick Contact Cards */}
-                        <div className="space-y-4">
-                            {/* Phone Card */}
-                            <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a href={`tel:${CONTACT_CONFIG.contactInfo.phone.replace(/\s/g, '')}`} className="block">
-                                    <CardContent className="flex items-center gap-4 p-5">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-green-100 group-hover:bg-green-200 transition-colors">
-                                            <Phone className="h-6 w-6 text-green-600" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Call Us</h3>
-                                            <p className="text-primary font-medium">{CONTACT_CONFIG.contactInfo.phone}</p>
-                                            <p className="text-sm text-muted-foreground">{CONTACT_CONFIG.office.hours}</p>
-                                        </div>
-                                        <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                    </CardContent>
-                                </a>
-                            </Card>
-
-                            {/* Email Card */}
-                            <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a href={`mailto:${CONTACT_CONFIG.contactInfo.email}`} className="block">
-                                    <CardContent className="flex items-center gap-4 p-5">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-100 group-hover:bg-blue-200 transition-colors">
-                                            <Mail className="h-6 w-6 text-blue-600" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Email Us</h3>
-                                            <p className="text-primary font-medium truncate">{CONTACT_CONFIG.contactInfo.email}</p>
-                                            <p className="text-sm text-muted-foreground">We reply within 24 hours</p>
-                                        </div>
-                                        <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                                    </CardContent>
-                                </a>
-                            </Card>
-
-                            {/* Office Location Card */}
-                            <Card className="group border-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                                <a
-                                    href={CONTACT_CONFIG.office.location.googleMapsUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block"
-                                >
-                                    <CardContent className="flex items-center gap-4 p-5">
-                                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-100 group-hover:bg-amber-200 transition-colors">
-                                            <MapPin className="h-6 w-6 text-amber-600" />
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">Visit Us</h3>
-                                            <p className="text-muted-foreground text-sm">{CONTACT_CONFIG.office.location.address}</p>
-                                            <p className="text-sm text-primary font-medium">Get Directions →</p>
-                                        </div>
-                                    </CardContent>
-                                </a>
-                            </Card>
-                        </div>
-
-                        {/* Map */}
-                        <Card className="border-0 shadow-sm overflow-hidden">
-                            <div className="relative aspect-[4/3] w-full bg-muted">
-                                <iframe
-                                    src={`https://www.google.com/maps?q=${CONTACT_CONFIG.office.location.lat},${CONTACT_CONFIG.office.location.lng}&hl=en&z=15&output=embed`}
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    className="absolute inset-0"
-                                    title="Office Location"
-                                />
-                            </div>
-                            <CardContent className="p-4 bg-muted/30">
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                        <Clock className="h-4 w-4" />
-                                        <span>Open {CONTACT_CONFIG.office.hours}</span>
-                                    </div>
-                                    <a
-                                        href={CONTACT_CONFIG.office.location.googleMapsUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-sm text-primary font-medium hover:underline"
-                                    >
-                                        Open in Maps
-                                    </a>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        {/* Why Contact Us */}
-                        <Card className="border-0 shadow-sm bg-gradient-to-br from-primary/5 to-transparent">
-                            <CardHeader>
-                                <CardTitle className="text-lg">Why Contact Us?</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-3">
-                                {CONTACT_CONFIG.whyContact.map((item, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                                        <span className="text-sm text-muted-foreground">{item}</span>
-                                    </div>
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </div>
+                    <ContactSidebar />
 
                     {/* Contact Form */}
                     <div className="lg:col-span-3">
