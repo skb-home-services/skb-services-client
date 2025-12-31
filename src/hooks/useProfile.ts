@@ -27,12 +27,17 @@ export function useProfile(): ProfileHookReturn {
 
     const formMethods = useForm<ProfileFormData>({
         resolver: zodResolver(profileSchema),
+        defaultValues: {
+            displayName: '',
+            phone: {
+                region: PROFILE_CONFIG.defaultCountryCode,
+                number: '',
+            },
+        },
     });
 
     const {
-        register,
         handleSubmit: handleFormSubmit,
-        control,
         setValue,
         reset,
         formState: { errors, isDirty },
@@ -40,13 +45,19 @@ export function useProfile(): ProfileHookReturn {
 
     useEffect(() => {
         if (userProfile) {
-            reset({
-                displayName: userProfile.displayName || '',
-                phone: {
-                    region: userProfile.phone?.region || PROFILE_CONFIG.defaultCountryCode,
-                    number: userProfile?.phone?.nationalNumber || '',
+            reset(
+                {
+                    displayName: userProfile.displayName || '',
+                    phone: {
+                        region: userProfile.phone?.region || PROFILE_CONFIG.defaultCountryCode,
+                        number: userProfile.phone?.nationalNumber || '',
+                    },
                 },
-            });
+                {
+                    keepDirty: false,
+                    keepTouched: false,
+                }
+            );
         }
     }, [userProfile, reset]);
 

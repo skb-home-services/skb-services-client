@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { COUNTRY_CODES, DEFAULT_COUNTRY_CODE } from '@/configs/config';
+import { COUNTRY_CODES } from '@/configs/config';
+import { PROFILE_CONFIG } from '@/configs/profile';
 
 interface PhoneInputProps {
     name: string;
@@ -46,24 +47,30 @@ export function PhoneInput({ name, label, required = false, className }: PhoneIn
                 <Controller
                     name={`${name}.region`}
                     control={control}
-                    defaultValue={DEFAULT_COUNTRY_CODE}
-                    render={({ field }) => (
-                        <Select onValueChange={field.onChange} value={field.value || 'NP'}>
-                            <SelectTrigger className="w-[130px]">
-                                <SelectValue placeholder="Country" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {COUNTRY_CODES.map((country) => (
-                                    <SelectItem key={country.code} value={country.code}>
-                                        <span className="flex items-center gap-2">
-                                            <span className="text-muted-foreground">{country.dial}</span>
-                                            <span>{country.code}</span>
-                                        </span>
-                                    </SelectItem>
-                                ))}
-                            </SelectContent>
-                        </Select>
-                    )}
+                    render={({ field }) => {
+                        const safeValue = COUNTRY_CODES.some((c) => c.code === field.value)
+                            ? field.value
+                            : PROFILE_CONFIG.defaultCountryCode;
+
+                        return (
+                            <Select key={safeValue} value={safeValue} onValueChange={field.onChange}>
+                                <SelectTrigger className="w-[130px]">
+                                    <SelectValue placeholder="Country" />
+                                </SelectTrigger>
+
+                                <SelectContent>
+                                    {COUNTRY_CODES.map((country) => (
+                                        <SelectItem key={country.code} value={country.code}>
+                                            <span className="flex items-center gap-2">
+                                                <span className="text-muted-foreground">{country.dial}</span>
+                                                <span>{country.code}</span>
+                                            </span>
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        );
+                    }}
                 />
 
                 {/* Phone Number Input */}
@@ -119,10 +126,8 @@ export function StandalonePhoneInput({
                 {label} {required && '*'}
             </Label>
             <div className="flex gap-2">
-                <Select onValueChange={onRegionChange} value={regionValue || 'NP'}>
-                    <SelectTrigger className="w-[130px]">
-                        <SelectValue placeholder="Country" />
-                    </SelectTrigger>
+                <Select onValueChange={onRegionChange} value={regionValue}>
+                    <SelectTrigger className="w-[130px]" />
                     <SelectContent>
                         {COUNTRY_CODES.map((country) => (
                             <SelectItem key={country.code} value={country.code}>

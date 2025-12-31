@@ -19,7 +19,6 @@ export function ProfilePage() {
         authUser,
         formMethods,
         handleSubmit,
-        errors,
         previewUrl,
         handleImageChange,
         removeImage,
