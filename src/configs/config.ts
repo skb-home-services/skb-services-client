@@ -13,7 +13,7 @@ export const COUNTRY_CODES = [
     { code: 'US', name: 'United States', dial: '+1' },
 ] as const;
 
-export const DEFAULT_COUNTRY_CODE = 'IN';
+export const DEFAULT_COUNTRY_CODE = 'NP';
 export const BOOKING_STATUSES = ['pending', 'confirmed', 'completed', 'cancelled'] as const;
 export const SERVICE_CATEGORIES = ['household', 'cleaning', 'plumbing', 'other'] as const;
 
