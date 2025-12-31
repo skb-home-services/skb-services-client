@@ -31,6 +31,16 @@ export interface Address {
     landmark?: string;
 }
 
+export interface ManualCustomerAddress {
+    houseNumber?: string;
+    line1?: string;
+    line2?: string;
+    city?: string;
+    state?: string;
+    pincode?: string;
+    landmark?: string;
+}
+
 export interface PhoneNumber {
     phoneE164: string;
     countryCode: number;

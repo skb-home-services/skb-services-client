@@ -39,12 +39,12 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                   },
                   isActive: customer.isActive,
                   address: {
-                      houseNumber: customer.address.houseNumber,
-                      line1: customer.address.line1,
+                      houseNumber: customer.address.houseNumber || '',
+                      line1: customer.address.line1 || '',
                       line2: customer.address.line2 || '',
-                      city: customer.address.city,
-                      state: customer.address.state,
-                      pincode: customer.address.pincode,
+                      city: customer.address.city || '',
+                      state: customer.address.state || '',
+                      pincode: customer.address.pincode || '',
                       landmark: customer.address.landmark || '',
                   },
               }
@@ -52,7 +52,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                   fullName: '',
                   email: undefined,
                   phone: {
-                      region: 'NP',
+                      region: 'IN',
                       number: '',
                   },
                   isActive: true,
@@ -118,9 +118,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                     <div className="grid gap-4">
                         <div className="grid gap-4 sm:grid-cols-2">
                             <div className="space-y-2">
-                                <Label htmlFor="address.houseNumber">
-                                    House Number <span className="text-destructive">*</span>
-                                </Label>
+                                <Label htmlFor="address.houseNumber">House Number</Label>
                                 <Input
                                     id="address.houseNumber"
                                     {...form.register('address.houseNumber')}
@@ -133,9 +131,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="address.line1">
-                                    Address Line 1 <span className="text-destructive">*</span>
-                                </Label>
+                                <Label htmlFor="address.line1">Address Line 1</Label>
                                 <Input
                                     id="address.line1"
                                     {...form.register('address.line1')}
@@ -155,9 +151,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
 
                         <div className="grid gap-4 sm:grid-cols-3">
                             <div className="space-y-2">
-                                <Label htmlFor="address.city">
-                                    City <span className="text-destructive">*</span>
-                                </Label>
+                                <Label htmlFor="address.city">City</Label>
                                 <Input
                                     id="address.city"
                                     {...form.register('address.city')}
@@ -170,9 +164,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="address.state">
-                                    State <span className="text-destructive">*</span>
-                                </Label>
+                                <Label htmlFor="address.state">State</Label>
                                 <Input
                                     id="address.state"
                                     {...form.register('address.state')}
@@ -185,9 +177,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="address.pincode">
-                                    Pincode <span className="text-destructive">*</span>
-                                </Label>
+                                <Label htmlFor="address.pincode">Pincode</Label>
                                 <Input
                                     id="address.pincode"
                                     {...form.register('address.pincode')}

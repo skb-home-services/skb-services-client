@@ -57,6 +57,9 @@ export default function ManualCustomerDetailPage({ params }: { params: { id: str
         queryFn: () => getManualCustomerById(customerId),
     });
 
+    const address = customer?.address;
+    const hasAddress = address && Object.values(address).some((value) => value !== undefined && value !== null && value !== '');
+
     const updateMutation = useMutation({
         mutationFn: async (data: UpdateManualCustomerFormData) => {
             return await updateManualCustomer({ ...data, id: customerId });
@@ -255,22 +258,34 @@ export default function ManualCustomerDetailPage({ params }: { params: { id: str
 
                             <div className="space-y-2">
                                 <p className="text-sm text-muted-foreground">Address</p>
+
                                 <div className="flex items-start gap-2">
                                     <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
-                                    <div className="space-y-1">
-                                        <p className="font-medium">
-                                            {customer.address.houseNumber}, {customer.address.line1}
-                                        </p>
-                                        {customer.address.line2 && (
-                                            <p className="text-sm text-muted-foreground">{customer.address.line2}</p>
-                                        )}
-                                        <p className="text-sm text-muted-foreground">
-                                            {customer.address.city}, {customer.address.state} - {customer.address.pincode}
-                                        </p>
-                                        {customer.address.landmark && (
-                                            <p className="text-sm text-muted-foreground">Landmark: {customer.address.landmark}</p>
-                                        )}
-                                    </div>
+
+                                    {hasAddress ? (
+                                        <div className="space-y-1">
+                                            {(address.houseNumber || address.line1) && (
+                                                <p className="font-medium">
+                                                    {[address.houseNumber, address.line1].filter(Boolean).join(', ')}
+                                                </p>
+                                            )}
+
+                                            {address.line2 && <p className="text-sm text-muted-foreground">{address.line2}</p>}
+
+                                            {(address.city || address.state || address.pincode) && (
+                                                <p className="text-sm text-muted-foreground">
+                                                    {[address.city, address.state].filter(Boolean).join(', ')}
+                                                    {address.pincode && ` - ${address.pincode}`}
+                                                </p>
+                                            )}
+
+                                            {address.landmark && (
+                                                <p className="text-sm text-muted-foreground">Landmark: {address.landmark}</p>
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <p className="text-sm text-muted-foreground italic">Address not found</p>
+                                    )}
                                 </div>
                             </div>
 

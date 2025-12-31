@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { phoneNumberSchema, optionalPhoneNumberSchema } from './phoneSchema';
-import { addressSchema } from './addressSchema';
+import { manualCustomerAddressSchema } from './addressSchema';
 import { MANUAL_CUSTOMER_CHANNELS } from '@/configs/config';
 
 export const manualCustomerServiceStatuses = ['active', 'paused', 'completed'] as const;
@@ -21,7 +21,7 @@ export const createManualCustomerSchema = z.object({
     email: z.preprocess((val) => (val === '' ? undefined : val), z.string().email('Please enter a valid email address').optional()),
     phone: phoneNumberSchema,
     isActive: z.boolean().default(true),
-    address: addressSchema,
+    address: manualCustomerAddressSchema,
 });
 
 export const updateManualCustomerSchema = z.object({
@@ -30,7 +30,7 @@ export const updateManualCustomerSchema = z.object({
     email: z.preprocess((val) => (val === '' ? undefined : val), z.string().email('Please enter a valid email address').optional()),
     phone: optionalPhoneNumberSchema,
     isActive: z.boolean().optional(),
-    address: addressSchema.optional(),
+    address: manualCustomerAddressSchema,
 });
 
 export const addManualCustomerServicesSchema = z.object({

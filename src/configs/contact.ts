@@ -4,7 +4,6 @@ export const CONTACT_CONFIG = {
             lat: 12.9126,
             lng: 77.5889,
             address: 'J P Nagar, Bengaluru, Karnataka, India',
-            googleMapsUrl: 'https://maps.google.com/?q=12.9126,77.5889',
         },
         hours: 'Mon-Sat, 9:00 AM - 6:00 PM',
     },
