@@ -61,7 +61,7 @@ export function ServiceSidebar({ service, isLiked, onToggleLike }: ServiceSideba
                 });
             } catch (err) {
                 // User cancelled or error occurred
-                console.log('Share cancelled or failed');
+                console.error('Share cancelled or failed', err);
             }
         } else {
             // Fallback: copy to clipboard
