@@ -33,7 +33,6 @@ export function UpdateOutcomeDialog({ customerId, service, onSubmit, onCancel, i
     const handleSubmit = form.handleSubmit(
         async (data) => {
             try {
-                console.log('Submitting outcome update:', data);
                 await onSubmit(data);
             } catch (error) {
                 console.error('Error submitting outcome update:', error);

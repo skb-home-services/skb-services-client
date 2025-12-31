@@ -130,9 +130,7 @@ export default function ManualCustomerDetailPage({ params }: { params: { id: str
 
     const updateOutcomeMutation = useMutation({
         mutationFn: async (data: UpdateManualCustomerServiceOutcomeFormData) => {
-            console.log('updateOutcomeMutation called with:', data);
             const { customerId: _, ...payload } = data;
-            console.log('Calling updateManualCustomerServiceOutcome with:', { customerId, ...payload });
             return await updateManualCustomerServiceOutcome({ customerId, ...payload });
         },
         onSuccess: () => {

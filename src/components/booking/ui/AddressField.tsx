@@ -75,7 +75,6 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
                             <Select
                                 value={field.value}
                                 onValueChange={(value) => {
-                                    console.log('Selected state:', value);
                                     field.onChange(value);
                                 }}
                             >
