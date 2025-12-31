@@ -1,12 +1,12 @@
 'use client';
 
-import { useFormContext } from 'react-hook-form';
 import { InputField } from './InputField';
 import { FormField } from './FormField';
 import { Input } from '@/components/ui/input';
 import { Home } from 'lucide-react';
 import { BOOKING_CONFIG, SERVICE_LOCATIONS } from '@/configs/booking';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Controller, useFormContext } from 'react-hook-form';
 
 interface AddressFieldProps {
     focusedField: string | null;
@@ -16,6 +16,7 @@ interface AddressFieldProps {
 
 export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: AddressFieldProps) {
     const {
+        control,
         register,
         formState: { errors },
     } = useFormContext();
@@ -66,30 +67,37 @@ export function AddressField({ focusedField, onFieldFocus, onFieldBlur }: Addres
                 </FormField>
 
                 <FormField id="address.state" label="State" required error={addressErrors?.state?.message}>
-                    <Select
+                    <Controller
+                        name="address.state"
+                        control={control}
                         defaultValue={SERVICE_LOCATIONS.defaultState}
-                        onValueChange={(value) =>
-                            register('address.state').onChange({
-                                target: { name: 'address.state', value },
-                            })
-                        }
-                    >
-                        <SelectTrigger
-                            className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
-                            aria-invalid={addressErrors?.state ? 'true' : 'false'}
-                        >
-                            <SelectValue placeholder="Select state" />
-                        </SelectTrigger>
+                        render={({ field }) => (
+                            <Select
+                                value={field.value}
+                                onValueChange={(value) => {
+                                    console.log('Selected state:', value);
+                                    field.onChange(value);
+                                }}
+                            >
+                                <SelectTrigger
+                                    className="h-11 rounded-xl border-gray-200 bg-gray-50/50 focus:bg-white focus:border-primary/50 transition-all"
+                                    aria-invalid={addressErrors?.state ? 'true' : 'false'}
+                                >
+                                    <SelectValue placeholder="Select state" />
+                                </SelectTrigger>
 
-                        <SelectContent>
-                            {SERVICE_LOCATIONS.states.map((state) => (
-                                <SelectItem key={state} value={state}>
-                                    {state}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
+                                <SelectContent>
+                                    {SERVICE_LOCATIONS.states.map((state) => (
+                                        <SelectItem key={state} value={state}>
+                                            {state}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        )}
+                    />
                 </FormField>
+
                 <FormField id="address.pincode" label="Pincode" required error={addressErrors?.pincode?.message}>
                     <Input
                         id="address.pincode"
