@@ -348,7 +348,7 @@ export default function HomePage() {
             </section>
 
             {/* Testimonial/Social Proof Section */}
-            <section className="relative py-10 md:py-16 overflow-hidden">
+            <section className="relative py-10 md:py-16 overflow-hidden selection-white">
                 {/* Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700" />
                 <div className="absolute inset-0 bg-grid-pattern opacity-10" />
