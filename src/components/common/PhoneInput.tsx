@@ -36,6 +36,9 @@ export function PhoneInput({ name, label, required = false, className }: PhoneIn
     const phoneError = getNestedError();
     const hasError = !!phoneError;
 
+    // todo: "remove this comment later"
+    console.log('phoneError', phoneError);
+
     return (
         <div className={cn('space-y-2', className)}>
             <Label htmlFor={`${name}.number`}>
