@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 
 import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,6 +15,7 @@ import {
 import { cn } from '@/lib/utils';
 import type { ManualCustomer } from '@/types';
 import { BOOKING_CONFIG } from '@/configs/booking';
+import { PROFILE_CONFIG } from '@/configs/profile';
 
 interface CustomerFormProps {
     customer?: ManualCustomer;
@@ -52,7 +53,7 @@ export function CustomerForm({ customer, onSubmit, onCancel, isLoading }: Custom
                   fullName: '',
                   email: undefined,
                   phone: {
-                      region: '',
+                      region: PROFILE_CONFIG.defaultCountryCode,
                       number: '',
                   },
                   isActive: true,

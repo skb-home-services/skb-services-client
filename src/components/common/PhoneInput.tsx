@@ -6,7 +6,6 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { COUNTRY_CODES } from '@/configs/config';
-import { PROFILE_CONFIG } from '@/configs/profile';
 
 interface PhoneInputProps {
     name: string;
@@ -48,12 +47,8 @@ export function PhoneInput({ name, label, required = false, className }: PhoneIn
                     name={`${name}.region`}
                     control={control}
                     render={({ field }) => {
-                        const safeValue = COUNTRY_CODES.some((c) => c.code === field.value)
-                            ? field.value
-                            : PROFILE_CONFIG.defaultCountryCode;
-
                         return (
-                            <Select key={safeValue} value={safeValue} onValueChange={field.onChange}>
+                            <Select value={field.value} onValueChange={field.onChange}>
                                 <SelectTrigger className="w-[130px]">
                                     <SelectValue placeholder="Country" />
                                 </SelectTrigger>
